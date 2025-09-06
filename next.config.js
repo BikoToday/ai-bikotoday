@@ -2,8 +2,12 @@
 const nextConfig = {
   async redirects() {
     return [
-      { source: '/', destination: '/help', permanent: false },
+      {
+        source: "/help",
+        destination: "https://www.chatbase.co/DWCuKMIQrgol47UDlGucO/help",
+        permanent: false,
+      },
     ];
   },
 };
-module.exports = nextConfig;
+export default nextConfig;
