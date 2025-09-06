@@ -1,21 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          // Allow Gamma to embed your site
-          {
-            key: "Content-Security-Policy",
-            value:
-              "frame-ancestors 'self' https://gamma.app https://*.gamma.app;",
-          },
-          // Do NOT set X-Frame-Options (it would override CSP and block framing)
-        ],
-      },
-    ];
-  },
+  reactStrictMode: true,
+  async redirects() { return []; }, // no external redirects
 };
-
-export default nextConfig;
+module.exports = nextConfig;
