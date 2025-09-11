@@ -1,13 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
+  async headers() {
     return [
       {
-        source: "/help",
-        destination: "https://www.chatbase.co/DWCuKMIQrgol47UDlGucO/help",
-        permanent: false,
+        source: '/:path*',
+        headers: [
+          // Controls who can embed YOUR pages (not what you iframe).
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'self' https://gamma.app https://*.gamma.app" },
+        ],
       },
     ];
   },
 };
-export default nextConfig;
+module.exports = nextConfig;
